@@ -1,11 +1,9 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  padding: 0;
+  margin: 0;
 }
 
 h1 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: brown;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
 }
