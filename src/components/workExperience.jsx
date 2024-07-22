@@ -1,35 +1,6 @@
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import "../styles/style.css";
 
-export default function Experience() {
-  const [work, setWork] = useState([]);
-
-  const addWork = () => {
-    setWork([
-      ...work,
-      {
-        id: uuidv4(),
-        company: "",
-        position: "",
-        startDate: "",
-        endDate: "",
-        description: "",
-      },
-    ]);
-  };
-
-  const removeWork = (id) => {
-    setWork(work.filter((item) => item.id !== id));
-  };
-
-  const handleInputChange = (id, field, value) => {
-    const updatedData = work.map((item) =>
-      item.id === id ? { ...item, [field]: value } : item
-    );
-    setWork(updatedData);
-  };
-
+export default function Experience({ work, change, adding, removing }) {
   return (
     <div>
       <h2>Work Experience</h2>
@@ -38,18 +9,14 @@ export default function Experience() {
           <div className="module">
             <input
               value={works.company}
-              onChange={(e) =>
-                handleInputChange(works.id, "company", e.target.value)
-              }
+              onChange={(e) => change(works.id, "company", e.target.value)}
               name="company"
               type="text"
               placeholder="Company Name"
             />
             <input
               value={works.position}
-              onChange={(e) =>
-                handleInputChange(works.id, "position", e.target.value)
-              }
+              onChange={(e) => change(works.id, "position", e.target.value)}
               name="position"
               type="text"
               placeholder="Position"
@@ -58,18 +25,14 @@ export default function Experience() {
           <div className="module">
             <input
               value={works.startDate}
-              onChange={(e) =>
-                handleInputChange(works.id, "startDate", e.target.value)
-              }
+              onChange={(e) => change(works.id, "startDate", e.target.value)}
               name="startDate"
               type="text"
               placeholder="Start Date"
             />
             <input
               value={works.endDate}
-              onChange={(e) =>
-                handleInputChange(works.id, "endDate", e.target.value)
-              }
+              onChange={(e) => change(works.id, "endDate", e.target.value)}
               name="endDate"
               type="text"
               placeholder="End Date"
@@ -82,17 +45,15 @@ export default function Experience() {
               id="about"
               cols="30"
               rows="5"
-              onChange={(e) =>
-                handleInputChange(works.id, "description", e.target.value)
-              }
+              onChange={(e) => change(works.id, "description", e.target.value)}
             ></textarea>
           </div>
           <div className="module">
-            <button onClick={() => removeWork(works.id)}>Remove</button>
+            <button onClick={() => removing(works.id)}>Remove</button>
           </div>
         </div>
       ))}
-      <button className="add" onClick={addWork}>
+      <button className="add" onClick={adding}>
         Add Work Experience
       </button>
     </div>
