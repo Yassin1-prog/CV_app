@@ -1,9 +1,18 @@
 import "../styles/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrashCan,
+  faPlus,
+  faHammer,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Experience({ work, change, adding, removing }) {
   return (
-    <div>
-      <h2>Work Experience</h2>
+    <div className="CompForm">
+      <h2>
+        <FontAwesomeIcon icon={faHammer} className="heademoji" />
+        Work Experience
+      </h2>
       {work.map((works) => (
         <div className="space" key={works.id}>
           <div className="module">
@@ -39,22 +48,25 @@ export default function Experience({ work, change, adding, removing }) {
             />
           </div>
           <div className="formfield">
-            <label htmlFor="about">Tell us about yourself:</label>
+            <label htmlFor="about">Describe your work:</label>
             <textarea
               name="about"
               id="about"
               cols="30"
               rows="5"
+              value={works.description}
               onChange={(e) => change(works.id, "description", e.target.value)}
             ></textarea>
           </div>
           <div className="module">
-            <button onClick={() => removing(works.id)}>Remove</button>
+            <button onClick={() => removing(works.id)}>
+              <FontAwesomeIcon icon={faTrashCan} />
+            </button>
           </div>
         </div>
       ))}
       <button className="add" onClick={adding}>
-        Add Work Experience
+        <FontAwesomeIcon icon={faPlus} size="lg" />
       </button>
     </div>
   );

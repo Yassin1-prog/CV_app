@@ -1,9 +1,18 @@
 import "../styles/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrashCan,
+  faPlus,
+  faToolbox,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Skills({ skill, change, adding, removing }) {
   return (
-    <div>
-      <h2>Skills</h2>
+    <div className="CompForm">
+      <h2>
+        <FontAwesomeIcon icon={faToolbox} className="heademoji" />
+        Skills
+      </h2>
       {skill.map((skill) => (
         <div key={skill.id}>
           <input
@@ -13,11 +22,13 @@ export default function Skills({ skill, change, adding, removing }) {
             type="text"
             placeholder="Skill"
           />
-          <button onClick={() => removing(skill.id)}>Remove</button>
+          <button onClick={() => removing(skill.id)}>
+            <FontAwesomeIcon icon={faTrashCan} />
+          </button>
         </div>
       ))}
       <button className="add" onClick={adding}>
-        Add Skill
+        <FontAwesomeIcon icon={faPlus} size="lg" />
       </button>
     </div>
   );

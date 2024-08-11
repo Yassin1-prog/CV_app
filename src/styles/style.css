@@ -18,7 +18,8 @@ button {
 }
 
 .add {
-  padding: 10px 20px;
+  padding: 8px 20px;
+  border-radius: 10px;
 }
 
 button:hover {
@@ -68,4 +69,14 @@ textarea:focus {
   grid-row: 4 / 5;
   grid-column: 2 / 3;
   justify-self: end;
+}
+
+.heademoji {
+  padding-right: 10px;
+}
+
+.CompForm {
+  padding: 20px;
+  margin: 20px;
+  background-color: sandybrown;
 }

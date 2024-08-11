@@ -7,19 +7,102 @@ import WorkExperience from "./components/workExperience.jsx";
 import Skills from "./components/skills.jsx";
 import Resume from "./components/resume.jsx";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRepeat,
+  faUpload,
+  faLayerGroup,
+} from "@fortawesome/free-solid-svg-icons";
+
 const initialData = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  phone: "",
-  about: "",
+  firstName: "Micheal",
+  lastName: "Alvrazo",
+  email: "michealvrz777@gmail.com",
+  phone: "01069928385",
+  about:
+    "I am 20 years old and have always been passionate about developing software to improve lives. I always listen to others to get insight and keep improving in my field and i always try to stay top of my game. I am competitive but also a team player. Mylife motto is always to look for challenges. Esy peazy lemon squezy",
 };
 
 function App() {
   const [data, setData] = useState(initialData);
-  const [school, setSchool] = useState([]);
-  const [work, setWork] = useState([]);
-  const [skill, setSkill] = useState([]);
+  const [school, setSchool] = useState([
+    {
+      id: uuidv4(),
+      college: "Boston City University",
+      degree: "Bachelors in Biology",
+    },
+    {
+      id: uuidv4(),
+      college: "Technical University Munich",
+      degree: "MCs in Advanced Nanotechnology",
+    },
+  ]);
+  const [work, setWork] = useState([
+    {
+      id: uuidv4(),
+      company: "Alphabet Inc.",
+      position: "Software Engineer",
+      startDate: "12/3/2024",
+      endDate: "present",
+      description:
+        "Responsibilities include Design, develop, test, deploy, maintain, and improve software. Manage project priorities, deadlines, and deliverables. Take on tasks as requested, following through to completion despite roadblocks or distractions.",
+    },
+  ]);
+  const [skill, setSkill] = useState([
+    { id: uuidv4(), skills: "Leadership qualities with enhanced vision" },
+    {
+      id: uuidv4(),
+      skills: "Grit, determination and perserverence for perfection",
+    },
+  ]);
+
+  const reset = () => {
+    setSkill([]);
+    setSchool([]);
+    setWork([]);
+    setData({ firstName: "", lastName: "", email: "", phone: "", about: "" });
+  };
+
+  const load = () => {
+    setSkill([
+      { id: uuidv4(), skills: "Leadership qualities with enhanced vision" },
+      {
+        id: uuidv4(),
+        skills: "Grit, determination and perserverence for perfection",
+      },
+    ]);
+    setSchool([
+      {
+        id: uuidv4(),
+        college: "Boston City University",
+        degree: "Bachelors in Biology",
+      },
+      {
+        id: uuidv4(),
+        college: "Technical University Munich",
+        degree: "MCs in Advanced Nanotechnology",
+      },
+    ]);
+    setWork([
+      {
+        id: uuidv4(),
+        company: "Alphabet Inc.",
+        position: "Software Engineer",
+        startDate: "12/3/2024",
+        endDate: "present",
+        description:
+          "Responsibilities include Design, develop, test, deploy, maintain, and improve software. Manage project priorities, deadlines, and deliverables. Take on tasks as requested, following through to completion despite roadblocks or distractions.",
+      },
+    ]);
+    setData({
+      firstName: "Micheal",
+      lastName: "Alvrazo",
+      email: "michealvrz777@gmail.com",
+      phone: "01069928385",
+      about:
+        "I am 20 years old and have always been passionate about developing software to improve lives. I always listen to others to get insight and keep improving in my field and i always try to stay top of my game. I am competitive but also a team player. Mylife motto is always to look for challenges. Esy peazy lemon squezy",
+    });
+  };
 
   const addSkill = () => {
     setSkill([...skill, { id: uuidv4(), skills: "" }]);
@@ -86,9 +169,18 @@ function App() {
 
   return (
     <>
-      <h1>CV MAKER</h1>
+      <h1>
+        <FontAwesomeIcon icon={faLayerGroup} className="emojii" />
+        CV MAKER
+      </h1>
       <div className="main">
         <div className="form">
+          <button onClick={reset}>
+            <FontAwesomeIcon icon={faRepeat} />
+          </button>
+          <button onClick={load}>
+            <FontAwesomeIcon icon={faUpload} />
+          </button>
           <PersonalData change={handleInputChange} data={data} />
           <EducationInfo
             school={school}

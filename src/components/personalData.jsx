@@ -1,9 +1,14 @@
 import "../styles/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function PersonalData({ change, data }) {
   return (
-    <>
-      <h2>Personal Info</h2>
+    <div className="CompForm">
+      <h2>
+        <FontAwesomeIcon icon={faUser} className="heademoji" />
+        Personal Info
+      </h2>
       <form>
         <input
           value={data.firstName}
@@ -26,6 +31,7 @@ export default function PersonalData({ change, data }) {
             id="about"
             cols="30"
             rows="5"
+            value={data.about}
             onChange={change}
           ></textarea>
         </div>
@@ -44,6 +50,6 @@ export default function PersonalData({ change, data }) {
           placeholder="Phone Number"
         />
       </form>
-    </>
+    </div>
   );
 }

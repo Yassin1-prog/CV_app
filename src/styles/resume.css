@@ -1,0 +1,125 @@
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.resume {
+  background-color: beige;
+  padding: 20px;
+  width: 800px;
+}
+
+.resume > h1 {
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.about {
+  word-wrap: break-word;
+  max-width: 500px;
+}
+
+.edu {
+  margin: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.edu > div {
+  padding: 0 5px;
+}
+
+/* should be grid way better */
+
+.education {
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px;
+  font-size: 16px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+}
+
+.work {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 1fr 2fr;
+}
+
+.workExperience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.workExperience > div > div {
+  padding: 0px 10px;
+}
+
+.time {
+  grid-column: 1 / 2;
+  justify-self: center;
+  align-self: start;
+}
+
+.bulk {
+  grid-column: 2 / 3;
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.workplace {
+  align-self: flex-start;
+}
+
+.pos {
+  padding-left: 5px;
+}
+
+.bulk > div {
+  padding-bottom: 10px;
+}
+
+.descr {
+  word-wrap: break-word;
+  width: 500px;
+  align-self: flex-start;
+}
+
+.emoji {
+  padding-right: 7px;
+}
+
+@media (max-width: 1040px) {
+  .resume {
+    width: 400px;
+  }
+}
+
+@media (max-width: 700px) {
+  .resume {
+    width: 300px;
+  }
+}
+
+@media (max-width: 550px) {
+  .resume {
+    width: 400px;
+  }
+}
