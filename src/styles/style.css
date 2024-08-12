@@ -80,3 +80,18 @@ textarea:focus {
   margin: 20px;
   background-color: sandybrown;
 }
+
+.hide {
+  border: none;
+  width: 100%;
+  background-color: sandybrown;
+  padding: 0;
+  text-align: left;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide:hover {
+  background-color: sandybrown;
+}
